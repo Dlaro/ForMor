@@ -1,11 +1,14 @@
 #pragma once
-#include"Interface.h"
+#include "Interface.h"
+#include "IRuntimeModule.h"
 namespace My {
-	Interface IRuntimeModule{
+	Interface IApplication:implements IRuntimeModule
+	{
 public:
-	virtual ~IRuntimeModule() {};
+	virtual ~IApplication() {};
 	virtual int Initialize() = 0;//‰Šú‰»
 	virtual void Finalize() = 0;//I—¹‰»
 	virtual void Tick() = 0;//once cycle of the main loop ˆê‰ñ“®‚«
+	virtual bool IsQuit() = 0;
 	};
 }

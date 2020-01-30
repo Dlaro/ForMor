@@ -2,12 +2,28 @@
 //
 
 #include <iostream>
+#include"IApplication.h"
+
+using namespace My;
 namespace My {
-	int main()
-	{
-		std::cout << "Hello World!\n";
-	}
+	extern IApplication* g_pApp;
 }
+int main()
+{
+	int ret;
+	if ((ret = g_pApp->Initialize()) != 0) {
+		std::cout << "App Initialize Faled" << std::endl;
+		return ret;
+	}
+	while (!g_pApp->IsQuit())
+	{
+		g_pApp->Tick();
+	}
+	g_pApp->Finalize();
+		
+	return 0;
+}
+
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
 // プログラムのデバッグ: F5 または [デバッグ] > [デバッグの開始] メニュー
