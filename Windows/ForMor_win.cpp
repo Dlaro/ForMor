@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <windowsx.h>
 #include <tchar.h>
-#include<d2d1.h>
 // the WindowProc function prototype 
 LRESULT CALLBACK WindowProc(HWND hWnd,
 	UINT message,
